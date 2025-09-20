@@ -56,6 +56,27 @@ The dataset contains **daily air quality measurements** across multiple location
 - Integration with health impact data for deeper insights.  
 
 --- 
+
+## 📐 Formula & Transformations  
+
+This dashboard makes use of **Power Query transformations** and calculated fields to enrich the dataset.  
+
+### 🔹 Calendar Table (Power Query)  
+A separate **Calendar Table** was created using the `List.Dates` function:  
+
+```m
+= List.Dates(StartDate, NumberOfDays, #duration(1,0,0,0))
+```
+### AQI Category 
+This has been derived from using **IF Formula** based on AQI score:
+```m
+= IF(AQI <= 50, "Good", 
+    IF(AQI <= 100, "Satisfactory", 
+    IF(AQI <= 200, "Moderate", 
+    IF(AQI <= 300, "Poor", 
+    IF(AQI <= 400, "Very Poor", "Severe")))))
+```
+
 ## Dashboard Preview
 
 ![Dashboard Screenshot](dashboard.png)
