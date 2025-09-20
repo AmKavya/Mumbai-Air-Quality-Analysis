@@ -56,4 +56,6 @@ The dataset contains **daily air quality measurements** across multiple location
 - Integration with health impact data for deeper insights.  
 
 --- 
+## Dashboard Preview
 
+![Dashboard Screenshot](dashboard.png)
